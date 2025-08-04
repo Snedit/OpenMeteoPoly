@@ -120,7 +120,7 @@ export function Map() {
     },
     (error) => {
       console.warn('Geolocation failed or was denied, falling back to NYC.', error);
-      initializeMap(40.7128, -74.0060); // Fallback to New York City
+      initializeMap(22.68944, 88.44594); // Fallback to New York City
     }
   );
 
@@ -220,7 +220,7 @@ export function Map() {
 
   const resetMapView = () => {
     if (mapRef.current) {
-      mapRef.current.setView([40.7128, -74.0060], 10);
+      mapRef.current.setView([22.68944, 88.44594], 10);
     }
   };
 

@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { table } from 'console';
 import { format } from 'date-fns';
 
 export interface WeatherData {

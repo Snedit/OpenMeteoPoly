@@ -29,6 +29,7 @@ export function Sidebar() {
 
   const [editingPolygon, setEditingPolygon] = useState<string | null>(null);
   const [newRuleName, setNewRuleName] = useState('');
+  const [showColorPicker, setShowColorPicker] = useState(false);
 
   const selectedPolygonData = polygons.find(p => p.id === selectedPolygon);
 
@@ -153,7 +154,15 @@ export function Sidebar() {
                         ? 'border-primary bg-primary/5' 
                         : 'border-border hover:bg-muted/50'
                     }`}
-                    onClick={() => setSelectedPolygon(polygon.id)}
+                    onClick={() => {
+  if (selectedPolygon === polygon.id) {
+    setShowColorPicker(prev => !prev); // toggle picker
+  } else {
+    setSelectedPolygon(polygon.id);
+    setShowColorPicker(true); // open picker when selecting new
+  }
+}}
+
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
