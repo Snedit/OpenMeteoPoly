@@ -79,7 +79,7 @@ With parameters:
 * `hourly`: `"temperature_2m,relative_humidity_2m"`
 * `timezone`: `"auto"`
 
-> ⚠️ The app includes an **in-memory rate limiter** to prevent spamming the API (30 request per unique lat/lng/date combo per minute).
+> ⚠️ The app includes an **in-memory rate limiter** to prevent spamming the API (30 request per unique lat/lng/date combo per minute)
 
 ---
 
