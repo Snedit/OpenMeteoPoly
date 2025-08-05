@@ -1,7 +1,7 @@
 import { ColorRule } from './store';
 
 export function getColorForValue(value: number, rules: ColorRule[]): string {
-  // Sort rules by min value to ensure proper ordering
+  
   const sortedRules = [...rules].sort((a, b) => a.min - b.min);
   
   for (const rule of sortedRules) {
@@ -10,7 +10,7 @@ export function getColorForValue(value: number, rules: ColorRule[]): string {
     }
   }
   
-  // If no rule matches, return the last rule's color
+  
   return sortedRules[sortedRules.length - 1]?.color || '#6b7280';
 }
 

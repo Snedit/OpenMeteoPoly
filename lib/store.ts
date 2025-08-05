@@ -68,10 +68,10 @@ const defaultDataSources: DataSource[] = [
     field: 'temperature_2m',
     unit: '°C',
     defaultRules: [
-      { min: -50, max: 0, color: '#3b82f6' },   // Blue for cold
-      { min: 0, max: 15, color: '#10b981' },    // Green for cool
-      { min: 15, max: 25, color: '#f59e0b' },   // Yellow for warm
-      { min: 25, max: 50, color: '#ef4444' },   // Red for hot
+      { min: -50, max: 0, color: '#3b82f6' }, 
+      { min: 0, max: 15, color: '#10b981' },  
+      { min: 15, max: 25, color: '#f59e0b' }, 
+      { min: 25, max: 50, color: '#ef4444' }, 
     ],
   },
   {
@@ -80,9 +80,9 @@ const defaultDataSources: DataSource[] = [
     field: 'relative_humidity_2m',
     unit: '%',
     defaultRules: [
-      { min: 0, max: 30, color: '#ef4444' },    // Red for dry
-      { min: 30, max: 60, color: '#10b981' },   // Green for comfortable
-      { min: 60, max: 100, color: '#3b82f6' },  // Blue for humid
+      { min: 0, max: 30, color: '#ef4444' },    
+      { min: 30, max: 60, color: '#10b981' },   
+      { min: 60, max: 100, color: '#3b82f6' },  
     ],
   },
 ];
@@ -90,7 +90,7 @@ const defaultDataSources: DataSource[] = [
 export const useDashboardStore = create<DashboardState>()(
   persist(
     (set, get) => ({
-      // Timeline
+    
       timeRange: {
         start: fifteenDaysAgo,
         end: fifteenDaysFromNow,
@@ -102,7 +102,7 @@ export const useDashboardStore = create<DashboardState>()(
           timeRange: { ...state.timeRange, currentHour: hour } 
         })),
       
-      // Polygons
+      
       polygons: [],
       selectedPolygon: null,
       addPolygon: (polygon) => {
@@ -126,12 +126,12 @@ export const useDashboardStore = create<DashboardState>()(
         })),
       setSelectedPolygon: (id) => set({ selectedPolygon: id }),
       
-      // Data sources
+
       dataSources: defaultDataSources,
       selectedDataSource: 'temperature',
       setSelectedDataSource: (id) => set({ selectedDataSource: id }),
       
-      // UI state
+ 
       isDrawing: false,
       setIsDrawing: (drawing) => set({ isDrawing: drawing }),
       sidebarOpen: true,

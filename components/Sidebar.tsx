@@ -156,10 +156,10 @@ export function Sidebar() {
                     }`}
                     onClick={() => {
   if (selectedPolygon === polygon.id) {
-    setShowColorPicker(prev => !prev); // toggle picker
+    setShowColorPicker(prev => !prev); 
   } else {
     setSelectedPolygon(polygon.id);
-    setShowColorPicker(true); // open picker when selecting new
+    setShowColorPicker(true); 
   }
 }}
 
@@ -209,7 +209,7 @@ export function Sidebar() {
             )}
           </Card>
 
-          {/* Selected Polygon Settings */}
+          
           {selectedPolygonData && (
             <Card className="p-4">
               <div className="flex items-center justify-between mb-3">
@@ -267,7 +267,7 @@ export function Sidebar() {
                 ))}
               </div>
 
-              {/* Data Source for this polygon */}
+              
               <Separator className="my-4" />
               <Label className="text-sm font-medium mb-2 block">Polygon Data Source</Label>
               <Select 
@@ -296,7 +296,7 @@ export function Sidebar() {
             </Card>
           )}
 
-          {/* Polygon Name Editor */}
+        
           {editingPolygon && (
             <Dialog open={!!editingPolygon} onOpenChange={() => setEditingPolygon(null)}>
               <DialogContent>

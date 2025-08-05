@@ -16,7 +16,7 @@ export function TimelineSlider() {
 const endOffset = totalHours;
 
 const [rangeValues, setRangeValues] = React.useState(() => {
-  const startOffset = differenceInHours(timeRange.start, timeRange.start); // always 0
+  const startOffset = differenceInHours(timeRange.start, timeRange.start);
   const endOffset = differenceInHours(timeRange.end, timeRange.start);
   return [startOffset, endOffset];
 });
@@ -25,7 +25,7 @@ const [rangeValues, setRangeValues] = React.useState(() => {
 const handleSliderChange = (values: number[]) => {
   setRangeValues(values);
   const newCurrentHour = addHours(timeRange.start, values[0]);
-  setCurrentHour(newCurrentHour); // Only move current time
+  setCurrentHour(newCurrentHour); 
 };
 
 
@@ -36,7 +36,7 @@ const handleSliderChange = (values: number[]) => {
   // };
   const resetToNow = () => {
   const now = new Date();
-  const start = new Date(now.getTime() - 5 * 60 * 60 * 1000); // 2 hours ago
+  const start = new Date(now.getTime() ); 
   const end = now;
 
   setTimeRange({
@@ -45,7 +45,7 @@ const handleSliderChange = (values: number[]) => {
     currentHour: now,
   });
 
-  setRangeValues([0, 2]); // Reset slider range if needed
+  setRangeValues([0, 2]);
 };
 
 

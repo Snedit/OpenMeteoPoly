@@ -12,7 +12,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { MapPin, Square, RotateCcw } from 'lucide-react';
 
-// Fix for default markers
+
 delete (L.Icon.Default.prototype as any)._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
@@ -40,7 +40,7 @@ export function Map() {
     timeRange,
   } = useDashboardStore();
 
-  // Initialize map
+
   useEffect(() => {
   if (!mapContainer || mapRef.current) return;
 
@@ -55,10 +55,10 @@ export function Map() {
       attribution: '© OpenStreetMap contributors',
     }).addTo(map);
 
-    // Custom zoom control
+   
     L.control.zoom({ position: 'topright' }).addTo(map);
 
-    // Drawing control
+    
     const drawControl = new L.Control.Draw({
       draw: {
         polygon: {
@@ -85,7 +85,7 @@ export function Map() {
     map.addControl(drawControl);
     drawControlRef.current = drawControl;
 
-    // Handle polygon creation
+   
     map.on(L.Draw.Event.CREATED, (event: any) => {
       const layer = event.layer;
       const coordinates = layer.getLatLngs()[0].map((latlng: L.LatLng) => [
@@ -132,17 +132,17 @@ export function Map() {
   };
 }, [mapContainer]);
 
-  // Update polygons on map
+ 
   useEffect(() => {
     if (!mapRef.current) return;
 
-    // Clear existing polygons
+ 
     Object.values(polygonLayersRef.current).forEach(layer => {
       mapRef.current?.removeLayer(layer);
     });
     polygonLayersRef.current = {};
 
-    // Add current polygons
+   
     polygons.forEach(polygon => {
       const latLngs = polygon.coordinates.map(([lng, lat]) => [lat, lng] as [number, number]);
       
@@ -173,7 +173,7 @@ export function Map() {
     });
   }, [polygons, selectedPolygon, dataSources]);
 
-  // Update polygon colors when time changes
+  
   useEffect(() => {
     const updatePolygonData = async () => {
       for (const polygon of polygons) {
@@ -199,7 +199,7 @@ export function Map() {
             currentColor: color,
           });
 
-          // Update map layer color
+         
           const layer = polygonLayersRef.current[polygon.id];
           if (layer) {
             layer.setStyle({
@@ -240,7 +240,7 @@ export function Map() {
                 const drawControl = drawControlRef.current;
                 if (drawControl && mapRef.current) {
                   if (!isDrawing) {
-                    // Trigger polygon drawing
+                    
                     const handler = new (L.Draw as any).Polygon(mapRef.current, drawControl.options.draw.polygon);
                     handler.enable();
                   }
